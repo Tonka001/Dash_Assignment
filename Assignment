@@ -114,7 +114,6 @@ def update_output_container(input_year, selected_statistics):
             #labels='Unemployment_Rate': 'Unemployment_Rate', 'Automobile_Sales': 'Average Automobile Sales',
             title='Effect of Unemployment Rate on Sales of various Vehicle Types')
         )
-        ...................
 
         return [
             html.Div(className='chart-item', children=[html.Div(children=R_chart1),html.Div(children=R_chart2)],style={'display': 'flex'}),
@@ -140,7 +139,7 @@ def update_output_container(input_year, selected_statistics):
         title='Total Monthly Automobile Sales {}'.format(input_year)))
 
             # Plot bar chart for average number of vehicles sold during the given year
-        avr_vdata=yearly_data.groupby('Vehicle_Type')['Automobile_Sales'].mean().reset_index()........................
+        avr_vdata=yearly_data.groupby('Vehicle_Type')['Automobile_Sales'].mean().reset_index()
         Y_chart3 = dcc.Graph(
             figure=px.bar(avr_vdata,
             x='Vehicle_Type',
@@ -149,7 +148,7 @@ def update_output_container(input_year, selected_statistics):
 
             # Total Advertisement Expenditure for each vehicle using pie chart
         exp_data=yearly_data.groupby('Vehicle_Type')['Advertising_Expenditure'].sum().reset_index()
-          Y_chart4 = dcc.Graph(
+        Y_chart4 = dcc.Graph(
             figure=px.pie(exp_data,
             values='Advertising_Expenditure',
             names= 'Vehicle_Type',
